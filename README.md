@@ -1,9 +1,8 @@
 <p align="center">
- <img src="https://img.shields.io/badge/Pig-3.8-success.svg" alt="Build Status">
+ <img src="https://img.shields.io/badge/bubble-4.0-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/Spring%20Cloud-2021-blue.svg" alt="Coverage Status">
  <img src="https://img.shields.io/badge/Spring%20Boot-2.7-blue.svg" alt="Downloads">
  <img src="https://img.shields.io/badge/Vue-3.4-blue.svg" alt="Downloads">
- <img src="https://img.shields.io/github/license/pig-mesh/pig"/>
  
 </p>
 
