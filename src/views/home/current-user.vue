@@ -3,7 +3,7 @@
 		<div class="flex items-center justify-between">
 			<!-- 用户信息 -->
 			<div class="flex items-center gap-4">
-				<el-avatar 
+				<el-avatar  v-if="userData.avatar"
 					:size="56" 
 					shape="circle" 
 					:src="baseURL + userData.avatar"
