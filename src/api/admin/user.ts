@@ -17,8 +17,9 @@ export const addObj = (obj: Object) => {
 };
 
 export const getObj = (id: String) => {
+	let idNum = Number.isFinite(id) ? id : 1
 	return request({
-		url: '/admin/user/details/' + id,
+		url: '/admin/user/details/' + idNum,
 		method: 'get',
 	});
 };
