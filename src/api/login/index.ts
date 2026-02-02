@@ -116,7 +116,7 @@ export const checkToken = (refreshTime: number, refreshLock: boolean) => {
                 clearInterval(refreshTime);
                 return;
             }
-            const expire = Date.parse(response.data.expiresAt);
+            const expire = response.exp * 1000;
             if (expire) {
                 const expiredPeriod = expire - new Date().getTime();
                 //小于半小时自动续约
