@@ -1,7 +1,7 @@
 {
-	"name": "bubble-backend",
+	"name": "AgetBubbles",
 	"version": "4.0.0",
-	"description": "企业级OA平台",
+	"description": "每个“泡泡”都是一个智能体（Agent），它们既可独立运作，也可碰撞融合，形成动态的知识网络与任务流，体现RAG检索与多智能体协作的弹性架构。",
 	"author": "qinlei",
 	"license": "Apache-2.0",
 	"type": "module",
