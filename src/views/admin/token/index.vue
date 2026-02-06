@@ -3,19 +3,19 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row class="ml10" v-show="showSearch">
 				<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList" ref="queryRef">
-					<el-form-item :label="$t('systoken.username')" prop="username">
-						<el-input :placeholder="$t('systoken.inputUsernameTip')" v-model="state.queryForm.username"></el-input>
+					<el-form-item :label="t('systoken.username')" prop="username">
+						<el-input :placeholder="t('systoken.inputUsernameTip')" v-model="state.queryForm.username"></el-input>
 					</el-form-item>
 					<el-form-item>
-						<el-button @click="getDataList" icon="Search" type="primary">{{ $t('common.queryBtn') }} </el-button>
-						<el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }}</el-button>
+						<el-button @click="getDataList" icon="Search" type="primary">{{ t('common.queryBtn') }} </el-button>
+						<el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }}</el-button>
 					</el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button :disabled="multiple" @click="handleDelete(selectObjs)" class="ml10" icon="Delete" type="primary" v-auth="'sys_user_del'">
-						{{ $t('systoken.offlineBtn') }}
+						{{ t('systoken.offlineBtn') }}
 					</el-button>
 					<right-toolbar
 						@queryTable="getDataList"
@@ -36,21 +36,21 @@
 				:header-cell-style="tableStyle.headerCellStyle"
 			>
 				<el-table-column align="center" type="selection" width="40" />
-				<el-table-column :label="$t('systoken.index')" type="index" width="60" />
-				<el-table-column :label="$t('systoken.username')" prop="username" show-overflow-tooltip width="150"></el-table-column>
-				<el-table-column :label="$t('systoken.clientId')" prop="clientId" show-overflow-tooltip width="100"></el-table-column>
-				<el-table-column :label="$t('systoken.accessToken')" prop="accessToken" show-overflow-tooltip>
+				<el-table-column :label="t('systoken.index')" type="index" width="60" />
+				<el-table-column :label="t('systoken.username')" prop="username" show-overflow-tooltip width="150"></el-table-column>
+				<el-table-column :label="t('systoken.clientId')" prop="clientId" show-overflow-tooltip width="100"></el-table-column>
+				<el-table-column :label="t('systoken.accessToken')" prop="accessToken" show-overflow-tooltip>
 					<template #default="scope">
 						<el-button link type="danger" v-if="filterOwnToken(scope.row)">
 							{{ scope.row.accessToken }}
 						</el-button>
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('systoken.expiresAt')" prop="expiresAt" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('common.action')" width="100">
+				<el-table-column :label="t('systoken.expiresAt')" prop="expiresAt" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('common.action')" width="100">
 					<template #default="scope">
 						<el-button icon="delete" @click="handleDelete([scope.row.accessToken])" size="small" text type="primary" v-auth="'sys_user_del'">
-							{{ $t('systoken.offlineBtn') }}
+							{{ t('systoken.offlineBtn') }}
 						</el-button>
 					</template>
 				</el-table-column>

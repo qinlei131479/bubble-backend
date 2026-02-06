@@ -1,44 +1,44 @@
 <template>
 	<div class="system-user-dialog-container">
-		<el-dialog :close-on-click-modal="false" :title="dataForm.userId ? $t('common.editBtn') : $t('common.addBtn')" draggable v-model="visible">
+		<el-dialog :close-on-click-modal="false" :title="dataForm.userId ? t('common.editBtn') : t('common.addBtn')" draggable v-model="visible">
 			<el-form :model="dataForm" :rules="dataRules" label-width="90px" ref="dataFormRef" v-loading="loading">
 				<el-row :gutter="20">
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.username')" prop="username">
+						<el-form-item :label="t('sysuser.username')" prop="username">
 							<el-input :disabled="dataForm.userId !== ''" placeholder="请输入用户名" v-model="dataForm.username"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.password')" prop="password">
+						<el-form-item :label="t('sysuser.password')" prop="password">
 							<el-input clearable placeholder="请输入密码" type="password" v-model="dataForm.password"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.name')" prop="name">
+						<el-form-item :label="t('sysuser.name')" prop="name">
 							<el-input clearable placeholder="请输入姓名" v-model="dataForm.name"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.phone')" prop="phone">
+						<el-form-item :label="t('sysuser.phone')" prop="phone">
 							<el-input clearable placeholder="请输入手机号" v-model="dataForm.phone"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.role')" prop="role">
+						<el-form-item :label="t('sysuser.role')" prop="role">
 							<el-select class="w100" clearable multiple placeholder="请选择角色" v-model="dataForm.role">
 								<el-option :key="item.roleId" :label="item.roleName" :value="item.roleId" v-for="item in roleData" />
 							</el-select>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.post')" prop="post">
+						<el-form-item :label="t('sysuser.post')" prop="post">
 							<el-select class="w100" clearable multiple placeholder="请选择岗位" v-model="dataForm.post">
 								<el-option :key="item.postId" :label="item.postName" :value="item.postId" v-for="item in postData" />
 							</el-select>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.dept')" prop="deptId">
+						<el-form-item :label="t('sysuser.dept')" prop="deptId">
 							<el-tree-select
 								:data="deptData"
 								:props="{ value: 'id', label: 'name', children: 'children' }"
@@ -53,17 +53,17 @@
 					</el-col>
 
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.email')" prop="email">
+						<el-form-item :label="t('sysuser.email')" prop="email">
 							<el-input clearable placeholder="请输入邮箱" v-model="dataForm.email"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.nickname')" prop="nickname">
+						<el-form-item :label="t('sysuser.nickname')" prop="nickname">
 							<el-input clearable placeholder="请输入昵称" v-model="dataForm.nickname"></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :span="12" class="mb20">
-						<el-form-item :label="$t('sysuser.lockFlag')" prop="lockFlag">
+						<el-form-item :label="t('sysuser.lockFlag')" prop="lockFlag">
 							<el-radio-group v-model="dataForm.lockFlag">
 								<el-radio :key="index" :value="item.value" border v-for="(item, index) in lock_flag">{{ item.label }} </el-radio>
 							</el-radio-group>
@@ -73,8 +73,8 @@
 			</el-form>
 			<template #footer>
 				<span class="dialog-footer">
-					<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-					<el-button @click="onSubmit" type="primary" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+					<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+					<el-button @click="onSubmit" type="primary" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 				</span>
 			</template>
 		</el-dialog>

@@ -3,15 +3,15 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row class="ml10" v-show="showSearch">
 				<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList" ref="queryRef">
-					<el-form-item :label="$t('syslog.logType')" prop="logType">
-						<el-select :placeholder="$t('syslog.inputLogTypeTip')" class="w100" clearable v-model="state.queryForm.logType">
+					<el-form-item :label="t('syslog.logType')" prop="logType">
+						<el-select :placeholder="t('syslog.inputLogTypeTip')" class="w100" clearable v-model="state.queryForm.logType">
 							<el-option :key="item.value" :label="item.label" :value="item.value" v-for="item in log_type" />
 						</el-select>
 					</el-form-item>
-					<el-form-item :label="$t('syslog.createTime')" prop="createTime">
+					<el-form-item :label="t('syslog.createTime')" prop="createTime">
 						<el-date-picker
-							:end-placeholder="$t('syslog.inputEndPlaceholderTip')"
-							:start-placeholder="$t('syslog.inputStartPlaceholderTip')"
+							:end-placeholder="t('syslog.inputEndPlaceholderTip')"
+							:start-placeholder="t('syslog.inputStartPlaceholderTip')"
 							range-separator="To"
 							type="datetimerange"
 							v-model="state.queryForm.createTime"
@@ -19,15 +19,15 @@
 						/>
 					</el-form-item>
 					<el-form-item>
-						<el-button @click="getDataList" icon="Search" type="primary">{{ $t('common.queryBtn') }} </el-button>
-						<el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }}</el-button>
+						<el-button @click="getDataList" icon="Search" type="primary">{{ t('common.queryBtn') }} </el-button>
+						<el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }}</el-button>
 					</el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button :disabled="multiple" v-auth="'sys_log_del'" @click="handleDelete(selectObjs)" class="ml10" icon="Delete" type="primary">
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 					<right-toolbar
 						:export="'sys_log_export'"
@@ -49,29 +49,29 @@
 				:header-cell-style="tableStyle.headerCellStyle"
 			>
 				<el-table-column align="center" type="selection" width="40" />
-				<el-table-column :label="$t('syslog.index')" type="index" width="60" />
-				<el-table-column :label="$t('syslog.logType')" show-overflow-tooltip>
+				<el-table-column :label="t('syslog.index')" type="index" width="60" />
+				<el-table-column :label="t('syslog.logType')" show-overflow-tooltip>
 					<template #default="scope">
 						<dict-tag :options="log_type" :value="scope.row.logType"></dict-tag>
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('syslog.title')" prop="title" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('syslog.remoteAddr')" prop="remoteAddr" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('syslog.method')" prop="method" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('syslog.time')" prop="time" show-overflow-tooltip>
+				<el-table-column :label="t('syslog.title')" prop="title" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('syslog.remoteAddr')" prop="remoteAddr" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('syslog.method')" prop="method" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('syslog.time')" prop="time" show-overflow-tooltip>
 					<template #default="scope">
 						<span v-if="scope.row.time">{{scope.row.time}}/ms</span>
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('syslog.createTime')" prop="createTime" show-overflow-tooltip sortable="custom" width="200"></el-table-column>
-				<el-table-column :label="$t('syslog.createBy')" prop="createBy" show-overflow-tooltip sortable="custom" width="200"></el-table-column>
-				<el-table-column :label="$t('common.action')" width="150">
+				<el-table-column :label="t('syslog.createTime')" prop="createTime" show-overflow-tooltip sortable="custom" width="200"></el-table-column>
+				<el-table-column :label="t('syslog.createBy')" prop="createBy" show-overflow-tooltip sortable="custom" width="200"></el-table-column>
+				<el-table-column :label="t('common.action')" width="150">
 					<template #default="scope">
 						<el-button icon="view" @click="LogDetailRef.openDialog(scope.row)" size="small" text type="primary">
-							{{ $t('common.detailBtn') }}
+							{{ t('common.detailBtn') }}
 						</el-button>
 						<el-button icon="delete" @click="handleDelete([scope.row.id])" size="small" text type="primary">
-							{{ $t('common.delBtn') }}
+							{{ t('common.delBtn') }}
 						</el-button>
 					</template>
 				</el-table-column>

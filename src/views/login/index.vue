@@ -11,15 +11,15 @@
           <div class="login-title">{{ getThemeConfig.globalTitle }}</div>
           <el-tabs v-model="tabsActiveName">
             <!-- 用户名密码登录 -->
-            <el-tab-pane :label="$t('label.one1')" name="account">
+            <el-tab-pane :label="t('label.one1')" name="account">
               <Password @signInSuccess="signInSuccess"/>
             </el-tab-pane>
             <!-- 手机号登录 -->
-            <el-tab-pane :label="$t('label.two2')" name="mobile">
+            <el-tab-pane :label="t('label.two2')" name="mobile">
               <Mobile @signInSuccess="signInSuccess"/>
             </el-tab-pane>
             <!-- 注册 -->
-            <el-tab-pane :label="$t('label.register')" name="register" v-if="registerEnable">
+            <el-tab-pane :label="t('label.register')" name="register" v-if="registerEnable">
               <Register @afterSuccess="tabsActiveName = 'account'"/>
             </el-tab-pane>
           </el-tabs>

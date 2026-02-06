@@ -2,8 +2,8 @@
 	<el-card class="box-card" style="height: 100%">
 		<template #header>
 			<div class="card-header">
-				<span>{{ $t('home.systemLogsTip') }}</span>
-				<el-button link class="button" text @click="handleRoutr">{{ $t('home.moreTip') }}</el-button>
+				<span>{{ t('home.systemLogsTip') }}</span>
+				<el-button link class="button" text @click="handleRoutr">{{ t('home.moreTip') }}</el-button>
 			</div>
 		</template>
 		<el-timeline v-if="Array.isArray(logState.dataList) && logState.dataList.length > 0">
@@ -17,7 +17,9 @@
 <script setup lang="ts" name="SysLogDashboard">
 import { BasicTableProps, useTable } from '/@/hooks/table';
 import { pageList } from '/@/api/admin/log';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n();
 const router = useRouter();
 
 // 创建基本表格参数对象

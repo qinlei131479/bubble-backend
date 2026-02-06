@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="visible" :close-on-click-modal="false" :title="form.jobId ? $t('common.editBtn') : $t('common.addBtn')" draggable>
+	<el-dialog v-model="visible" :close-on-click-modal="false" :title="form.jobId ? t('common.editBtn') : t('common.addBtn')" draggable>
 		<el-form ref="dataFormRef" :model="form" :rules="dataRules" formDialogRef label-width="120px" v-loading="loading">
       <el-row :gutter="20">
         <el-col :span="12" class="mb20">
@@ -69,9 +69,9 @@
     </el-form>
     <template #footer>
 			<span class="dialog-footer">
-				<el-button formDialogRef @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
+				<el-button formDialogRef @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
 				<el-button formDialogRef type="primary" @click="onSubmit" :disabled="loading">{{
-            $t('common.confirmButtonText')
+            t('common.confirmButtonText')
           }}</el-button>
 			</span>
     </template>

@@ -1,5 +1,5 @@
 <template>
-	<el-dialog fullscreen :title="form.id ? $t('common.editBtn') : $t('common.addBtn')" v-model="visible">
+	<el-dialog fullscreen :title="form.id ? t('common.editBtn') : t('common.addBtn')" v-model="visible">
 		<el-form :model="form" :rules="dataRules" formDialogRef ref="dataFormRef" v-loading="loading">
 			<el-container>
 				<el-aside width="80%">
@@ -23,8 +23,8 @@
 
 		<template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
 		</template>
 	</el-dialog>

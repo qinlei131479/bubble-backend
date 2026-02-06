@@ -20,7 +20,7 @@
 						@click="onCurrentContextmenuClick(v.contextMenuClickId)"
 					>
 						<SvgIcon :name="v.icon" />
-						<span>{{ $t(v.txt) }}</span>
+						<span>{{ t(v.txt) }}</span>
 					</li>
 				</template>
 			</ul>
@@ -33,6 +33,9 @@
 import { computed, reactive, onMounted, onUnmounted, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useTagsViewRoutes } from '/@/stores/tagsViewRoutes';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n();
 const storesTagsViewRoutes = useTagsViewRoutes();
 const { favoriteRoutes } = storeToRefs(storesTagsViewRoutes);
 

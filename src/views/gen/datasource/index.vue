@@ -3,24 +3,24 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row class="ml10" v-show="showSearch">
 				<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList" ref="queryRef">
-					<el-form-item :label="$t('datasourceconf.dsName')" prop="dsName">
-						<el-input :placeholder="$t('datasourceconf.inputdsNameTip')" v-model="state.queryForm.dsName" />
+					<el-form-item :label="t('datasourceconf.dsName')" prop="dsName">
+						<el-input :placeholder="t('datasourceconf.inputdsNameTip')" v-model="state.queryForm.dsName" />
 					</el-form-item>
 					<el-form-item>
 						<el-button @click="getDataList" icon="search" type="primary">
-							{{ $t('common.queryBtn') }}
+							{{ t('common.queryBtn') }}
 						</el-button>
-						<el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }} </el-button>
+						<el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }} </el-button>
 					</el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button @click="formDialogRef.openDialog()" class="ml10" icon="folder-add" type="primary">
-						{{ $t('common.addBtn') }}
+						{{ t('common.addBtn') }}
 					</el-button>
 					<el-button :disabled="multiple" @click="handleDelete(selectObjs)" class="ml10" icon="Delete" type="primary">
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 					<right-toolbar
 						@queryTable="getDataList"
@@ -46,13 +46,13 @@
 				<el-table-column :label="t('datasourceconf.dsType')" prop="dsType" show-overflow-tooltip />
 				<el-table-column :label="t('datasourceconf.username')" prop="username" show-overflow-tooltip />
 				<el-table-column :label="t('datasourceconf.createTime')" prop="createTime" show-overflow-tooltip />
-				<el-table-column :label="$t('common.action')" width="250">
+				<el-table-column :label="t('common.action')" width="250">
 					<template #default="scope">
-						<el-button icon="document" @click="downloadDoc(scope.row.name)" text type="primary">{{ $t('datasourceconf.docBtn') }} </el-button>
+						<el-button icon="document" @click="downloadDoc(scope.row.name)" text type="primary">{{ t('datasourceconf.docBtn') }} </el-button>
 
-						<el-button icon="edit" @click="formDialogRef.openDialog(scope.row.id)" text type="primary">{{ $t('common.editBtn') }} </el-button>
+						<el-button icon="edit" @click="formDialogRef.openDialog(scope.row.id)" text type="primary">{{ t('common.editBtn') }} </el-button>
 
-						<el-button icon="delete" @click="handleDelete([scope.row.id])" text type="primary">{{ $t('common.delBtn') }} </el-button>
+						<el-button icon="delete" @click="handleDelete([scope.row.id])" text type="primary">{{ t('common.delBtn') }} </el-button>
 					</template>
 				</el-table-column>
 			</el-table>

@@ -1,19 +1,19 @@
 <template>
   <el-dialog title="新增字典" v-model="visible" width="600">
     <el-form :model="dataForm" :rules="dataRules" label-width="100px" ref="dicDialogFormRef" v-loading="loading">
-      <el-form-item :label="$t('sysdict.systemFlag')" prop="systemFlag">
+      <el-form-item :label="t('sysdict.systemFlag')" prop="systemFlag">
         <el-radio-group v-model="dataForm.systemFlag">
           <el-radio border :key="index" :value="item.value" v-for="(item, index) in dict_type">
             {{ item.label }}
           </el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item :label="$t('sysdict.dictType')" prop="dictType">
-        <el-input :placeholder="$t('sysdict.inputDictTypeTip')" :disabled="dataForm.id !== ''" clearable
+      <el-form-item :label="t('sysdict.dictType')" prop="dictType">
+        <el-input :placeholder="t('sysdict.inputDictTypeTip')" :disabled="dataForm.id !== ''" clearable
                   v-model="dataForm.dictType"></el-input>
       </el-form-item>
-      <el-form-item :label="$t('sysdict.description')" prop="description">
-        <el-input :placeholder="$t('sysdict.inputDescriptionTip')" clearable v-model="dataForm.description"></el-input>
+      <el-form-item :label="t('sysdict.description')" prop="description">
+        <el-input :placeholder="t('sysdict.inputDescriptionTip')" clearable v-model="dataForm.description"></el-input>
       </el-form-item>
       <el-col :span="24" class="mb20">
         <el-form-item :label="t('dictItem.name')" prop="columns">
@@ -27,12 +27,12 @@
                            @click="handleDelete(scope.$index, scope.row)"></el-button>
               </template>
             </el-table-column>
-            <el-table-column prop="label" :label="$t('dictItem.label')" show-overflow-tooltip>
+            <el-table-column prop="label" :label="t('dictItem.label')" show-overflow-tooltip>
               <template #default="scope">
                 <el-input v-model="scope.row.label" :placeholder="t('dictItem.inputLabelTip')"/>
               </template>
             </el-table-column>
-            <el-table-column prop="value" :label="$t('dictItem.itemValue')" show-overflow-tooltip>
+            <el-table-column prop="value" :label="t('dictItem.itemValue')" show-overflow-tooltip>
               <template #default="scope">
                 <el-input v-model="scope.row.value" :placeholder="t('dictItem.inputItemValueTip')"/>
               </template>
@@ -45,8 +45,8 @@
     </el-form>
     <template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
     </template>
   </el-dialog>

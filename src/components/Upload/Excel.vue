@@ -16,29 +16,29 @@
 		>
 			<i class="el-icon-upload"></i>
 			<div class="el-upload__text">
-				{{ $t('excel.operationNotice') }}
-				<em>{{ $t('excel.clickUpload') }}</em>
+				{{ t('excel.operationNotice') }}
+				<em>{{ t('excel.clickUpload') }}</em>
 			</div>
 			<template #tip>
 				<div class="el-upload__tip text-center">
-					<span>{{ $t('excel.fileFormat') }}</span>
+					<span>{{ t('excel.fileFormat') }}</span>
 					<el-link type="primary" :underline="false" style="font-size: 12px; vertical-align: baseline" @click="downExcelTemp" v-if="tempUrl"
-						>{{ $t('excel.downloadTemplate') }}
+						>{{ t('excel.downloadTemplate') }}
 					</el-link>
 				</div>
 			</template>
 		</el-upload>
 		<template #footer>
-			<el-button type="primary" @click="submitFileForm">{{ $t('common.confirmButtonText') }}</el-button>
-			<el-button @click="state.upload.open = false">{{ $t('common.cancelButtonText') }}</el-button>
+			<el-button type="primary" @click="submitFileForm">{{ t('common.confirmButtonText') }}</el-button>
+			<el-button @click="state.upload.open = false">{{ t('common.cancelButtonText') }}</el-button>
 		</template>
 	</el-dialog>
 
 	<!--校验失败错误数据-->
-	<el-dialog :title="$t('excel.validationFailureData')" v-model="state.errorVisible">
+	<el-dialog :title="t('excel.validationFailureData')" v-model="state.errorVisible">
 		<el-table :data="state.errorData">
-			<el-table-column property="lineNum" :label="$t('excel.lineNumbers')" width="100"></el-table-column>
-			<el-table-column property="errors" :label="$t('excel.misDescription')" show-overflow-tooltip>
+			<el-table-column property="lineNum" :label="t('excel.lineNumbers')" width="100"></el-table-column>
+			<el-table-column property="errors" :label="t('excel.misDescription')" show-overflow-tooltip>
 				<template v-slot="scope">
 					<el-tag type="danger" v-for="error in scope.row.errors" :key="error">{{ error }}</el-tag>
 				</template>
@@ -51,7 +51,9 @@
 import { useMessage } from '/@/hooks/message';
 import other from '/@/utils/other';
 import { Session } from '/@/utils/storage';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n();
 const emit = defineEmits(['sizeChange', 'refreshDataList']);
 const prop = defineProps({
 	url: {

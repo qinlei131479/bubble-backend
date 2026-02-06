@@ -1,35 +1,35 @@
 <template>
   <div class="system-dic-dialog-container">
-    <el-dialog v-model="visible" :title="dataForm.id ? $t('common.editBtn') : $t('common.addBtn')" width="600">
+    <el-dialog v-model="visible" :title="dataForm.id ? t('common.editBtn') : t('common.addBtn')" width="600">
       <el-form ref="dicDialogFormRef" :model="dataForm" label-width="90px" :rules="dataRules" v-loading="loading">
-        <el-form-item :label="$t('dictItem.dictType')" prop="dictType">
+        <el-form-item :label="t('dictItem.dictType')" prop="dictType">
           <el-input v-model="dataForm.dictType" clearable disabled
-                    :placeholder="$t('dictItem.inputDictTypeTip')"></el-input>
+                    :placeholder="t('dictItem.inputDictTypeTip')"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('dictItem.label')" prop="label">
-          <el-input v-model="dataForm.label" :placeholder="$t('dictItem.inputLabelTip')" clearable></el-input>
+        <el-form-item :label="t('dictItem.label')" prop="label">
+          <el-input v-model="dataForm.label" :placeholder="t('dictItem.inputLabelTip')" clearable></el-input>
         </el-form-item>
-        <el-form-item :label="$t('dictItem.itemValue')" prop="value">
-          <el-input v-model="dataForm.value" :placeholder="$t('dictItem.inputItemValueTip')" clearable></el-input>
+        <el-form-item :label="t('dictItem.itemValue')" prop="value">
+          <el-input v-model="dataForm.value" :placeholder="t('dictItem.inputItemValueTip')" clearable></el-input>
         </el-form-item>
-        <el-form-item :label="$t('dictItem.description')" prop="description">
-          <el-input v-model="dataForm.description" :placeholder="$t('dictItem.inputDescriptionTip')"
+        <el-form-item :label="t('dictItem.description')" prop="description">
+          <el-input v-model="dataForm.description" :placeholder="t('dictItem.inputDescriptionTip')"
                     clearable></el-input>
         </el-form-item>
-        <el-form-item :label="$t('dictItem.sortOrder')" prop="sortOrder">
-          <el-input-number v-model="dataForm.sortOrder" :placeholder="$t('dictItem.inputSortOrderTip')"
+        <el-form-item :label="t('dictItem.sortOrder')" prop="sortOrder">
+          <el-input-number v-model="dataForm.sortOrder" :placeholder="t('dictItem.inputSortOrderTip')"
                            clearable></el-input-number>
         </el-form-item>
-        <el-form-item :label="$t('dictItem.remarks')" prop="remarks">
-          <el-input v-model="dataForm.remarks" type="textarea" rows="3" :placeholder="$t('dictItem.inputRemarksTip')"
+        <el-form-item :label="t('dictItem.remarks')" prop="remarks">
+          <el-input v-model="dataForm.remarks" type="textarea" rows="3" :placeholder="t('dictItem.inputRemarksTip')"
                     maxlength="150"></el-input>
         </el-form-item>
       </el-form>
       <template #footer>
 				<span class="dialog-footer">
-					<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
+					<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
 					<el-button type="primary" @click="onSubmit" :disabled="loading">{{
-              $t('common.confirmButtonText')
+              t('common.confirmButtonText')
             }}</el-button>
 				</span>
       </template>

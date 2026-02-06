@@ -12,7 +12,7 @@
 						v-auth="'sys_log_del'"
 						@click="handleDelete(selectObjs)"
 					>
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 					<right-toolbar
 						v-model:showSearch="showSearch"
@@ -43,12 +43,12 @@
 				<el-table-column prop="executeTime" :label="t('log.executeTime')" show-overflow-tooltip />
 				<el-table-column prop="exceptionInfo" :label="t('log.exceptionInfo')" show-overflow-tooltip />
 				<el-table-column prop="createTime" :label="t('log.createTime')" show-overflow-tooltip />
-				<el-table-column :label="$t('common.action')" width="150">
+				<el-table-column :label="t('common.action')" width="150">
 					<template #default="scope">
 						<el-button text type="primary" v-auth="'pix_log_edit'" @click="formDialogRef.openDialog(scope.row.jobLogId)"
-							>{{ $t('common.editBtn') }}
+							>{{ t('common.editBtn') }}
 						</el-button>
-						<el-button text type="primary" v-auth="'sys_log_del'" @click="handleDelete([scope.row.jobLogId])">{{ $t('common.delBtn') }} </el-button>
+						<el-button text type="primary" v-auth="'sys_log_del'" @click="handleDelete([scope.row.jobLogId])">{{ t('common.delBtn') }} </el-button>
 					</template>
 				</el-table-column>
 			</el-table>

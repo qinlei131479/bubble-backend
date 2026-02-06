@@ -2,7 +2,7 @@
 	<el-card class="box-card" style="height: 100%">
 		<template #header>
 			<div class="card-header">
-				<span>{{ $t('home.quickNavigationToolsTip') }}</span>
+				<span>{{ t('home.quickNavigationToolsTip') }}</span>
 			</div>
 		</template>
 		<el-row :gutter="10" v-if="favoriteRoutes.length > 0">
@@ -11,19 +11,20 @@
 				<shortcutCard :icon="shortcut.meta?.icon" :label="shortcut.name" @click="handleRoute(shortcut.path)" />
 			</el-col>
 		</el-row>
-		<el-empty :description="$t('home.addFavoriteRoutesTip')" v-else />
+		<el-empty :description="t('home.addFavoriteRoutesTip')" v-else />
 	</el-card>
 </template>
 
 <script setup lang="ts" name="SysFavoriteDashboard">
 import { useTagsViewRoutes } from '/@/stores/tagsViewRoutes';
 import shortcutCard from '/@/components/ShortcutCard/index.vue';
+import {useI18n} from "vue-i18n";
 
 /**
  * 获取路由对象的实例。
  */
 const router = useRouter();
-
+const { t } = useI18n();
 /**
  * 获取 tagsView 路由列表 store 对象的实例。
  */

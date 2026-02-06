@@ -1,7 +1,7 @@
 <template>
 	<el-form size="large" class="login-content-form" :rules="dataRules" ref="dataFormRef" :model="state.ruleForm">
 		<el-form-item class="login-animation1" prop="username">
-			<el-input text :placeholder="$t('password.accountPlaceholder1')" v-model="state.ruleForm.username" clearable autocomplete="off">
+			<el-input text :placeholder="t('password.accountPlaceholder1')" v-model="state.ruleForm.username" clearable autocomplete="off">
 				<template #prefix>
 					<el-icon class="el-input__icon">
 						<ele-User />
@@ -11,7 +11,7 @@
 		</el-form-item>
 		<el-form-item class="login-animation2" prop="password">
 			<strength-meter
-				:placeholder="$t('password.accountPlaceholder2')"
+				:placeholder="t('password.accountPlaceholder2')"
 				v-model="state.ruleForm.password"
 				autocomplete="off"
 				:maxLength="20"
@@ -25,7 +25,7 @@
 			</strength-meter>
 		</el-form-item>
 		<el-form-item class="login-animation3" prop="phone">
-			<el-input text :placeholder="$t('password.phonePlaceholder4')" v-model="state.ruleForm.phone" clearable autocomplete="off">
+			<el-input text :placeholder="t('password.phonePlaceholder4')" v-model="state.ruleForm.phone" clearable autocomplete="off">
 				<template #prefix>
 					<el-icon class="el-input__icon">
 						<ele-Position />
@@ -35,15 +35,15 @@
 		</el-form-item>
 		<el-form-item>
 			<el-checkbox v-model="state.ruleForm.checked">
-				{{ $t('password.readAccept') }}
+				{{ t('password.readAccept') }}
 			</el-checkbox>
 			<el-button link type="primary">
-				{{ $t('password.privacyPolicy') }}
+				{{ t('password.privacyPolicy') }}
 			</el-button>
 		</el-form-item>
 		<el-form-item class="login-animation4">
 			<el-button type="primary" class="login-content-submit" v-waves @click="handleRegister" :loading="loading">
-				<span>{{ $t('password.registerBtnText') }}</span>
+				<span>{{ t('password.registerBtnText') }}</span>
 			</el-button>
 		</el-form-item>
 	</el-form>

@@ -2,7 +2,7 @@
   <el-form size="large" class="login-content-form" ref="loginFormRef" :rules="loginRules" :model="state.ruleForm"
            @keyup.enter="onSignIn">
     <el-form-item class="login-animation1" prop="username">
-      <el-input text :placeholder="$t('password.accountPlaceholder1')" v-model="state.ruleForm.username" clearable
+      <el-input text :placeholder="t('password.accountPlaceholder1')" v-model="state.ruleForm.username" clearable
                 autocomplete="off">
         <template #prefix>
           <el-icon class="el-input__icon">
@@ -14,7 +14,7 @@
     <el-form-item class="login-animation2" prop="password">
       <el-input
           :type="state.isShowPassword ? 'text' : 'password'"
-          :placeholder="$t('password.accountPlaceholder2')"
+          :placeholder="t('password.accountPlaceholder2')"
           v-model="state.ruleForm.password"
           autocomplete="off"
       >
@@ -35,7 +35,7 @@
     </el-form-item>
     <el-form-item class="login-animation2" prop="code" v-if="verifyEnable">
       <el-col :span="15">
-        <el-input text maxlength="4" :placeholder="$t('mobile.placeholder2')" v-model="state.ruleForm.code" clearable
+        <el-input text maxlength="4" :placeholder="t('mobile.placeholder2')" v-model="state.ruleForm.code" clearable
                   autocomplete="off">
           <template #prefix>
             <el-icon class="el-input__icon">
@@ -51,10 +51,10 @@
     </el-form-item>
     <el-form-item class="login-animation4">
       <el-button type="primary" class="login-content-submit" :loading="loading" @click="onSignIn">
-        <span>{{ $t('password.accountBtnText') }}</span>
+        <span>{{ t('password.accountBtnText') }}</span>
       </el-button>
     </el-form-item>
-    <div class="font12 mt30 login-animation4 login-msg">{{ $t('browserMsgText') }}</div>
+    <div class="font12 mt30 login-animation4 login-msg">{{ t('browserMsgText') }}</div>
   </el-form>
 </template>
 

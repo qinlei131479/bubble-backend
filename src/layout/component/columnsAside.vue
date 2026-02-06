@@ -13,15 +13,15 @@
 						}
 					"
 					:class="{ 'layout-columns-active': state.liIndex === k, 'layout-columns-hover': state.liHoverIndex === k }"
-					:title="$t(v.name)"
+					:title="t(v.name)"
 				>
 					<div :class="themeConfig.columnsAsideLayout" v-if="!v.meta.isLink || (v.meta.isLink && v.meta.isIframe)">
 						<SvgIcon :name="v.meta.icon" />
 						<div class="columns-vertical-title font12">
 							{{
-								$t(v.name) && $t(v.name).length >= 4
-									? $t(v.name).substr(0, themeConfig.columnsAsideLayout === 'columns-vertical' ? 4 : 3)
-									: $t(v.name)
+								t(v.name) && t(v.name).length >= 4
+									? t(v.name).substr(0, themeConfig.columnsAsideLayout === 'columns-vertical' ? 4 : 3)
+									: t(v.name)
 							}}
 						</div>
 					</div>
@@ -30,9 +30,9 @@
 							<SvgIcon :name="v.meta.icon" />
 							<div class="columns-vertical-title font12">
 								{{
-									$t(v.name) && $t(v.name).length >= 4
-										? $t(v.name).substr(0, themeConfig.columnsAsideLayout === 'columns-vertical' ? 4 : 3)
-										: $t(v.name)
+									t(v.name) && t(v.name).length >= 4
+										? t(v.name).substr(0, themeConfig.columnsAsideLayout === 'columns-vertical' ? 4 : 3)
+										: t(v.name)
 								}}
 							</div>
 						</a>
@@ -50,7 +50,9 @@ import pinia from '/@/stores/index';
 import { useRoutesList } from '/@/stores/routesList';
 import { useThemeConfig } from '/@/stores/themeConfig';
 import mittBus from '/@/utils/mitt';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n();
 // 定义变量内容
 const columnsAsideOffsetTopRefs = ref<RefType>([]);
 const columnsAsideActiveRef = ref();

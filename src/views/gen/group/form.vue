@@ -1,11 +1,11 @@
 <template>
-	<el-dialog v-model="visible" :title="form.id ? $t('common.editBtn') : $t('common.addBtn')" width="600">
+	<el-dialog v-model="visible" :title="form.id ? t('common.editBtn') : t('common.addBtn')" width="600">
 		<el-form ref="dataFormRef" :model="form" :rules="dataRules" formDialogRef label-width="90px" v-loading="loading">
 			<el-form-item :label="t('group.groupName')" prop="groupName">
 				<el-input v-model="form.groupName" :placeholder="t('group.inputGroupNameTip')" />
 			</el-form-item>
-			<el-form-item :label="$t('group.templateType')" prop="templateId">
-				<el-select v-model="form.templateId" :placeholder="$t('group.selectType')" clearable multiple>
+			<el-form-item :label="t('group.templateType')" prop="templateId">
+				<el-select v-model="form.templateId" :placeholder="t('group.selectType')" clearable multiple>
 					<el-option v-for="item in templateData" :key="item.id" :label="item.templateName" :value="item.id" />
 				</el-select>
 			</el-form-item>
@@ -15,8 +15,8 @@
 		</el-form>
 		<template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
 		</template>
 	</el-dialog>

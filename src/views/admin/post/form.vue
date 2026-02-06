@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :title="form.postId ? $t('common.editBtn') : $t('common.addBtn')" width="600" v-model="visible"
+  <el-dialog :title="form.postId ? t('common.editBtn') : t('common.addBtn')" width="600" v-model="visible"
              :close-on-click-modal="false" draggable>
     <el-form ref="dataFormRef" :model="form" :rules="dataRules" label-width="90px" v-loading="loading">
       <el-form-item :label="t('post.postCode')" prop="postCode">
@@ -17,8 +17,8 @@
     </el-form>
     <template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
     </template>
   </el-dialog>

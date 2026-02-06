@@ -5,7 +5,7 @@
 		<div v-if="props.disabled">
 			<div v-if="fileList.length === 0" class="flex justify-center items-center px-4 text-gray-400 bg-gray-50 rounded-md p">
 				<el-icon class="mr-2 text-lg"><Document /></el-icon>
-				<span class="text-sm">{{ $t('excel.noFiles') }}</span>
+				<span class="text-sm">{{ t('excel.noFiles') }}</span>
 			</div>
 			<div v-else>
 				<div
@@ -45,19 +45,19 @@
 		>
 			<i class="el-icon-upload"></i>
 			<div class="el-upload__text">
-				{{ $t('excel.operationNotice') }}
-				<em>{{ $t('excel.clickUpload') }}</em>
+				{{ t('excel.operationNotice') }}
+				<em>{{ t('excel.clickUpload') }}</em>
 			</div>
 			<template #tip>
 				<div class="el-upload__tip" v-if="props.isShowTip">
-					{{ $t('excel.pleaseUpload') }}
+					{{ t('excel.pleaseUpload') }}
 					<template v-if="props.fileSize">
-						{{ $t('excel.size') }} <b style="color: #f56c6c">{{ props.fileSize }}MB</b></template
+						{{ t('excel.size') }} <b style="color: #f56c6c">{{ props.fileSize }}MB</b></template
 					>
 					<template v-if="props.fileType">
-						{{ $t('excel.format') }} <b style="color: #f56c6c">{{ props.fileType.join('/') }}</b>
+						{{ t('excel.format') }} <b style="color: #f56c6c">{{ props.fileType.join('/') }}</b>
 					</template>
-					{{ $t('excel.file') }}
+					{{ t('excel.file') }}
 				</div>
 			</template>
 		</el-upload>
@@ -80,17 +80,17 @@
 			class="upload-file-uploader"
 			multiple
 		>
-			<el-button type="primary" link>{{ $t('excel.clickUpload') }}</el-button>
+			<el-button type="primary" link>{{ t('excel.clickUpload') }}</el-button>
 			<template #tip>
 				<div class="el-upload__tip" v-if="props.isShowTip">
-					{{ $t('excel.pleaseUpload') }}
+					{{ t('excel.pleaseUpload') }}
 					<template v-if="props.fileSize">
-						{{ $t('excel.size') }} <b style="color: #f56c6c">{{ props.fileSize }}MB</b></template
+						{{ t('excel.size') }} <b style="color: #f56c6c">{{ props.fileSize }}MB</b></template
 					>
 					<template v-if="props.fileType">
-						{{ $t('excel.format') }} <b style="color: #f56c6c">{{ props.fileType.join('/') }}</b>
+						{{ t('excel.format') }} <b style="color: #f56c6c">{{ props.fileType.join('/') }}</b>
 					</template>
-					{{ $t('excel.file') }}
+					{{ t('excel.file') }}
 				</div>
 			</template>
 		</el-upload>

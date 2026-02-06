@@ -3,23 +3,23 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row shadow="hover" v-show="showSearch" class="ml10">
 				<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList" ref="queryRef">
-					<el-form-item :label="$t('sysmenu.name')" prop="menuName">
-						<el-input :placeholder="$t('sysmenu.inputNameTip')" clearable style="max-width: 180px" v-model="state.queryForm.menuName" />
+					<el-form-item :label="t('sysmenu.name')" prop="menuName">
+						<el-input :placeholder="t('sysmenu.inputNameTip')" clearable style="max-width: 180px" v-model="state.queryForm.menuName" />
 					</el-form-item>
           <el-form-item>
             <el-button @click="query" class="ml10" icon="search" type="primary">
-              {{ $t('common.queryBtn') }}
+              {{ t('common.queryBtn') }}
             </el-button>
-            <el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }}</el-button>
+            <el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }}</el-button>
           </el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button @click="onOpenAddMenu" class="ml10" icon="folder-add" type="primary" v-auth="'sys_menu_add'">
-						{{ $t('common.addBtn') }}
+						{{ t('common.addBtn') }}
 					</el-button>
-					<el-button @click="handleExpand"> {{ $t('common.expandBtn') }} </el-button>
+					<el-button @click="handleExpand"> {{ t('common.expandBtn') }} </el-button>
 					<right-toolbar
 						v-model:showSearch="showSearch"
 						class="ml10"
@@ -39,38 +39,38 @@
 				:cell-style="tableStyle.cellStyle"
 				:header-cell-style="tableStyle?.headerCellStyle"
 			>
-				<el-table-column :label="$t('sysmenu.name')" fixed prop="name" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('sysmenu.sortOrder')" prop="sortOrder" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('sysmenu.icon')" prop="icon" show-overflow-tooltip>
+				<el-table-column :label="t('sysmenu.name')" fixed prop="name" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('sysmenu.sortOrder')" prop="sortOrder" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('sysmenu.icon')" prop="icon" show-overflow-tooltip>
 					<template #default="scope">
 						<SvgIcon :name="scope.row.meta.icon" />
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('sysmenu.path')" prop="path" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('sysmenu.menuType')" show-overflow-tooltip>
+				<el-table-column :label="t('sysmenu.path')" prop="path" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('sysmenu.menuType')" show-overflow-tooltip>
 					<template #default="scope">
 						<el-tag v-if="scope.row.menuType === '0'">左菜单</el-tag>
 						<el-tag v-if="scope.row.menuType === '2'">顶菜单</el-tag>
 						<el-tag type="success" v-if="scope.row.menuType === '1'">按钮</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('sysmenu.keepAlive')" show-overflow-tooltip>
+				<el-table-column :label="t('sysmenu.keepAlive')" show-overflow-tooltip>
 					<template #default="scope">
 						<el-tag v-if="scope.row.meta.isKeepAlive">开启</el-tag>
 						<el-tag type="info" v-else>关闭</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column :label="$t('sysmenu.permission')" :show-overflow-tooltip="true" prop="permission"></el-table-column>
-				<el-table-column :label="$t('common.action')" show-overflow-tooltip width="250">
+				<el-table-column :label="t('sysmenu.permission')" :show-overflow-tooltip="true" prop="permission"></el-table-column>
+				<el-table-column :label="t('common.action')" show-overflow-tooltip width="250">
 					<template #default="scope">
 						<el-button icon="folder-add" @click="onOpenAddMenu('add', scope.row)" text type="primary" v-auth="'sys_menu_add'">
-							{{ $t('common.addBtn') }}
+							{{ t('common.addBtn') }}
 						</el-button>
 						<el-button icon="edit-pen" @click="onOpenEditMenu('edit', scope.row)" text type="primary" v-auth="'sys_menu_edit'"
-							>{{ $t('common.editBtn') }}
+							>{{ t('common.editBtn') }}
 						</el-button>
 
-						<el-tooltip icon="delete" :content="$t('sysmenu.deleteDisabledTip')" :disabled="!deleteMenuDisabled(scope.row)" placement="top">
+						<el-tooltip icon="delete" :content="t('sysmenu.deleteDisabledTip')" :disabled="!deleteMenuDisabled(scope.row)" placement="top">
 							<span style="margin-left: 12px">
 								<el-button
 									icon="delete"
@@ -80,7 +80,7 @@
 									type="primary"
 									v-auth="'sys_menu_del'"
 								>
-									{{ $t('common.delBtn') }}
+									{{ t('common.delBtn') }}
 								</el-button>
 							</span>
 						</el-tooltip>

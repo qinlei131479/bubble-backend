@@ -5,10 +5,10 @@
 				<div class="left">
 					<div class="left-item">
 						<div class="left-item-animation left-item-num">404</div>
-						<div class="left-item-animation left-item-title">{{ $t('notFound.foundTitle') }}</div>
-						<div class="left-item-animation left-item-msg">{{ $t('notFound.foundMsg') }}</div>
+						<div class="left-item-animation left-item-title">{{ t('notFound.foundTitle') }}</div>
+						<div class="left-item-animation left-item-msg">{{ t('notFound.foundMsg') }}</div>
 						<div class="left-item-animation left-item-btn">
-							<el-button type="primary" round @click="onGoHome">{{ $t('notFound.foundBtn') }}</el-button>
+							<el-button type="primary" round @click="onGoHome">{{ t('notFound.foundBtn') }}</el-button>
 						</div>
 					</div>
 				</div>
@@ -24,8 +24,10 @@
 
 <script setup lang="ts" name="notFound">
 // 定义变量内容
-const router = useRouter();
+import {useI18n} from "vue-i18n";
 
+const router = useRouter();
+const { t } = useI18n();
 // 返回首页
 const onGoHome = () => {
 	router.push('/');

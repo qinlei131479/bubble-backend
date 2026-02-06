@@ -9,14 +9,14 @@
               <el-option :key="ds.id" :label="ds.name" :value="ds.name" v-for="ds in datasourceList"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :label="$t('table.tableName')" prop="tableName">
-            <el-input :placeholder="$t('table.inputtableNameTip')" v-model="state.queryForm.tableName"/>
+          <el-form-item :label="t('table.tableName')" prop="tableName">
+            <el-input :placeholder="t('table.inputtableNameTip')" v-model="state.queryForm.tableName"/>
           </el-form-item>
           <el-form-item>
             <el-button @click="getDataList" icon="search" type="primary">
-              {{ $t('common.queryBtn') }}
+              {{ t('common.queryBtn') }}
             </el-button>
-            <el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }}</el-button>
+            <el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }}</el-button>
           </el-form-item>
         </el-form>
       </el-row>
@@ -44,13 +44,13 @@
         <el-table-column :label="t('table.tableName')" prop="name" show-overflow-tooltip/>
         <el-table-column :label="t('table.tableDesc')" prop="comment" show-overflow-tooltip/>
         <el-table-column :label="t('table.createTime')" prop="createTime" show-overflow-tooltip/>
-        <el-table-column :label="$t('common.action')" width="250">
+        <el-table-column :label="t('common.action')" width="250">
           <template #default="scope">
             <el-button icon="Refresh" @click="syncTable(scope.row)" text type="primary">
-              {{ $t('gen.syncBtn') }}
+              {{ t('gen.syncBtn') }}
             </el-button>
             <el-button icon="FolderOpened" @click="openGen(scope.row)" text type="primary">{{
-                $t('gen.genBtn')
+                t('gen.genBtn')
               }}
             </el-button>
           </template>

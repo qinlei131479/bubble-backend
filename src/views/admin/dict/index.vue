@@ -8,10 +8,10 @@
 							<el-row>
 								<div class="mb8" style="width: 100%">
 									<el-button @click="dicDialogRef.openDialog()" class="ml10" icon="folder-add" type="primary">
-										{{ $t('common.addBtn') }}
+										{{ t('common.addBtn') }}
 									</el-button>
 									<el-button plain @click="handleRefreshCache()" class="ml10" icon="refresh-left" type="primary">
-										{{ $t('common.refreshCacheBtn') }}
+										{{ t('common.refreshCacheBtn') }}
 									</el-button>
 								</div>
 							</el-row>
@@ -24,7 +24,7 @@
 											<span class="do">
 												<el-button-group>
 													<el-button icon="Edit" size="small" @click.stop="dicDialogRef.openDialog(data.id)"></el-button>
-													<el-tooltip :content="$t('sysdict.deleteDisabledTip')" :disabled="data.systemFlag === '0'" placement="top">
+													<el-tooltip :content="t('sysdict.deleteDisabledTip')" :disabled="data.systemFlag === '0'" placement="top">
 														<span style="margin-left: 12px">
 															<el-button
 																:disabled="data.systemFlag !== '0'"
@@ -42,7 +42,7 @@
 							</el-scrollbar>
 							<el-footer style="height: 40px; line-height: 40px">
 								<el-button type="primary" size="small" icon="Download" style="width: 100%" @click="exportExcel">{{
-									$t('common.exportBtn')
+									t('common.exportBtn')
 								}}</el-button>
 							</el-footer>
 						</div>

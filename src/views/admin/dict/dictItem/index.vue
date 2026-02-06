@@ -2,7 +2,7 @@
 	<div class="layout-padding-auto layout-padding-view">
 		<div class="mb8">
 			<el-button icon="folder-add" type="primary" class="ml10" @click="dictformRef.openDialog(null, state.queryForm)">
-				{{ $t('common.addBtn') }}
+				{{ t('common.addBtn') }}
 			</el-button>
 			<right-toolbar :search="false" class="ml10" style="float: right; margin-right: 20px" @queryTable="getDataList"></right-toolbar>
 		</div>
@@ -14,19 +14,19 @@
 			:cell-style="tableStyle.cellStyle"
 			:header-cell-style="tableStyle.headerCellStyle"
 		>
-			<el-table-column prop="dictType" :label="$t('dictItem.dictType')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="value" :label="$t('dictItem.itemValue')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="label" :label="$t('dictItem.label')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="description" :label="$t('dictItem.description')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="sortOrder" :label="$t('dictItem.sortOrder')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="remarks" :label="$t('dictItem.remarks')" show-overflow-tooltip></el-table-column>
-			<el-table-column prop="createTime" :label="$t('dictItem.createTime')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="dictType" :label="t('dictItem.dictType')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="value" :label="t('dictItem.itemValue')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="label" :label="t('dictItem.label')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="description" :label="t('dictItem.description')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="sortOrder" :label="t('dictItem.sortOrder')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="remarks" :label="t('dictItem.remarks')" show-overflow-tooltip></el-table-column>
+			<el-table-column prop="createTime" :label="t('dictItem.createTime')" show-overflow-tooltip></el-table-column>
 
-			<el-table-column :label="$t('common.action')" width="150">
+			<el-table-column :label="t('common.action')" width="150">
 				<template #default="scope">
-					<el-button icon="edit-pen" text type="primary" @click="dictformRef.openDialog(scope.row)"> {{ $t('common.editBtn') }} </el-button>
+					<el-button icon="edit-pen" text type="primary" @click="dictformRef.openDialog(scope.row)"> {{ t('common.editBtn') }} </el-button>
 					<el-button icon="delete" text type="primary" @click="handleDelete(scope.row)">
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 				</template>
 			</el-table-column>

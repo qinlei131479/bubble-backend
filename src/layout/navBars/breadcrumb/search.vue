@@ -5,7 +5,7 @@
         <el-autocomplete
             v-model="state.menuQuery"
             :fetch-suggestions="menuSearch"
-            :placeholder="$t('user.searchPlaceholder')"
+            :placeholder="t('user.searchPlaceholder')"
             ref="layoutMenuAutocompleteRef"
             @select="onHandleSelect"
             :fit-input-width="true"
@@ -18,7 +18,7 @@
           <template #default="{ item }">
             <div>
               <SvgIcon :name="item.meta.icon" class="mr5" />
-              {{ $t(item.name) }}
+              {{ t(item.name) }}
             </div>
           </template>
         </el-autocomplete>

@@ -3,11 +3,15 @@
 		<el-tag :color="randomColor()" class="container-tag">
 			<SvgIcon :name="props.icon" :size="25" color="#ffffff" />
 		</el-tag>
-		<span class="container-span">{{ $t(props.label) }}</span>
+		<span class="container-span">{{ t(props.label) }}</span>
 	</div>
 </template>
 
 <script setup name="shortcut">
+
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n();
 const props = defineProps({
 	icon: {
 		type: String,

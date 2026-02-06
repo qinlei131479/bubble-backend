@@ -1,31 +1,31 @@
 <template>
   <div class="system-dic-dialog-container">
-    <el-dialog :title="dataForm.id ? $t('common.editBtn') : $t('common.addBtn')" v-model="visible" width="600">
+    <el-dialog :title="dataForm.id ? t('common.editBtn') : t('common.addBtn')" v-model="visible" width="600">
       <el-form :model="dataForm" :rules="dataRules" label-width="90px" ref="dicDialogFormRef" v-loading="loading">
-        <el-form-item :label="$t('sysdict.systemFlag')" prop="systemFlag">
+        <el-form-item :label="t('sysdict.systemFlag')" prop="systemFlag">
           <el-radio-group v-model="dataForm.systemFlag">
             <el-radio border :key="index" :value="item.value" v-for="(item, index) in dict_type">
               {{ item.label }}
             </el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="$t('sysdict.dictType')" prop="dictType">
-          <el-input :placeholder="$t('sysdict.inputDictTypeTip')" :disabled="dataForm.id !== ''" clearable
+        <el-form-item :label="t('sysdict.dictType')" prop="dictType">
+          <el-input :placeholder="t('sysdict.inputDictTypeTip')" :disabled="dataForm.id !== ''" clearable
                     v-model="dataForm.dictType"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('sysdict.description')" prop="description">
-          <el-input :placeholder="$t('sysdict.inputDescriptionTip')" clearable
+        <el-form-item :label="t('sysdict.description')" prop="description">
+          <el-input :placeholder="t('sysdict.inputDescriptionTip')" clearable
                     v-model="dataForm.description"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('sysdict.remarks')" prop="remarks">
-          <el-input type="textarea" maxlength="150" rows="3" :placeholder="$t('sysdict.inputRemarksTip')" v-model="dataForm.remarks"></el-input>
+        <el-form-item :label="t('sysdict.remarks')" prop="remarks">
+          <el-input type="textarea" maxlength="150" rows="3" :placeholder="t('sysdict.inputRemarksTip')" v-model="dataForm.remarks"></el-input>
         </el-form-item>
       </el-form>
       <template #footer>
 				<span class="dialog-footer">
-					<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
+					<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
 					<el-button @click="onSubmit" type="primary" :disabled="loading">{{
-              $t('common.confirmButtonText')
+              t('common.confirmButtonText')
             }}</el-button>
 				</span>
       </template>

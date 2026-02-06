@@ -3,12 +3,12 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row shadow="hover" v-show="showSearch" class="ml10">
 				<el-form :model="state.queryForm" ref="queryRef" :inline="true" @keyup.enter="getDataList">
-					<el-form-item prop="deptName" :label="$t('sysdept.name')">
-						<el-input :placeholder="$t('sysdept.inputdeptNameTip')" style="max-width: 180px" v-model="state.queryForm.deptName"> </el-input>
+					<el-form-item prop="deptName" :label="t('sysdept.name')">
+						<el-input :placeholder="t('sysdept.inputdeptNameTip')" style="max-width: 180px" v-model="state.queryForm.deptName"> </el-input>
 					</el-form-item>
 					<el-form-item>
 						<el-button icon="search" type="primary" @click="getDataList">
-							{{ $t('common.queryBtn') }}
+							{{ t('common.queryBtn') }}
 						</el-button>
 					</el-form-item>
 				</el-form>
@@ -16,12 +16,12 @@
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button icon="folder-add" type="primary" class="ml10" @click="deptDialogRef.openDialog('add')" v-auth="'sys_dept_add'">
-						{{ $t('common.addBtn') }}
+						{{ t('common.addBtn') }}
 					</el-button>
 					<el-button plain icon="upload-filled" type="primary" class="ml10" @click="excelUploadRef.show()">
-						{{ $t('common.importBtn') }}
+						{{ t('common.importBtn') }}
 					</el-button>
-					<el-button @click="handleExpand"> {{ $t('common.expandBtn') }} </el-button>
+					<el-button @click="handleExpand"> {{ t('common.expandBtn') }} </el-button>
 					<right-toolbar
 						v-model:showSearch="showSearch"
 						:export="'sys_dept_add'"
@@ -44,19 +44,19 @@
 				:cell-style="tableStyle.cellStyle"
 				:header-cell-style="tableStyle?.headerCellStyle"
 			>
-				<el-table-column :label="$t('sysdept.name')" prop="name" width="400" show-overflow-tooltip> </el-table-column>
-				<el-table-column :label="$t('sysdept.weight')" prop="weight" show-overflow-tooltip width="80"></el-table-column>
-				<el-table-column prop="createTime" :label="$t('sysdept.createTime')" show-overflow-tooltip></el-table-column>
-				<el-table-column :label="$t('common.action')" show-overflow-tooltip width="250">
+				<el-table-column :label="t('sysdept.name')" prop="name" width="400" show-overflow-tooltip> </el-table-column>
+				<el-table-column :label="t('sysdept.weight')" prop="weight" show-overflow-tooltip width="80"></el-table-column>
+				<el-table-column prop="createTime" :label="t('sysdept.createTime')" show-overflow-tooltip></el-table-column>
+				<el-table-column :label="t('common.action')" show-overflow-tooltip width="250">
 					<template #default="scope">
 						<el-button text type="primary" icon="folder-add" @click="deptDialogRef.openDialog('add', scope.row?.id)" v-auth="'sys_dept_add'">
-							{{ $t('common.addBtn') }}</el-button
+							{{ t('common.addBtn') }}</el-button
 						>
 						<el-button text type="primary" icon="edit-pen" @click="deptDialogRef.openDialog('edit', scope.row?.id)" v-auth="'sys_dept_edit'">{{
-							$t('common.editBtn')
+							t('common.editBtn')
 						}}</el-button>
 						<el-button text type="primary" icon="delete" @click="handleDelete(scope.row)" v-auth="'sys_dept_del'">
-							{{ $t('common.delBtn') }}</el-button
+							{{ t('common.delBtn') }}</el-button
 						>
 					</template>
 				</el-table-column>
@@ -65,7 +65,7 @@
 		<dept-form ref="deptDialogRef" @refresh="getDataList()" />
 		<upload-excel
 			ref="excelUploadRef"
-			:title="$t('sysdept.importTip')"
+			:title="t('sysdept.importTip')"
 			url="/admin/dept/import"
 			temp-url="/admin/sys-file/local/file/dept.xlsx"
 			@refreshDataList="getDataList"

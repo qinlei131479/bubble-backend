@@ -3,22 +3,22 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row v-show="showSearch">
 				<el-form :model="state.queryForm" ref="queryRef" :inline="true" @keyup.enter="getDataList">
-					<el-form-item :label="$t('file.fileName')" prop="original">
-						<el-input v-model="state.queryForm.original" :placeholder="$t('file.inputoriginalTip')" clearable @keyup.enter="getDataList" />
+					<el-form-item :label="t('file.fileName')" prop="original">
+						<el-input v-model="state.queryForm.original" :placeholder="t('file.inputoriginalTip')" clearable @keyup.enter="getDataList" />
 					</el-form-item>
 					<el-form-item>
-						<el-button type="primary" icon="Search" @click="getDataList">{{ $t('common.queryBtn') }}</el-button>
-						<el-button icon="Refresh" @click="resetQuery">{{ $t('common.resetBtn') }}</el-button>
+						<el-button type="primary" icon="Search" @click="getDataList">{{ t('common.queryBtn') }}</el-button>
+						<el-button icon="Refresh" @click="resetQuery">{{ t('common.resetBtn') }}</el-button>
 					</el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button formDialogRef icon="folder-add" type="primary" class="ml10" v-auth="'sys_file_del'" @click="formDialogRef.openDialog()">
-						{{ $t('common.addBtn') }}
+						{{ t('common.addBtn') }}
 					</el-button>
 					<el-button :disabled="multiple" icon="Delete" type="primary" class="ml10" v-auth="'sys_file_del'" @click="handleDelete(selectObjs)">
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 					<right-toolbar
 						v-model:showSearch="showSearch"
@@ -45,12 +45,12 @@
 				<el-table-column prop="type" :label="t('file.type')" show-overflow-tooltip />
 				<el-table-column prop="fileSize" :label="t('file.fileSize')" show-overflow-tooltip />
 				<el-table-column prop="createTime" :label="t('file.createTime')" show-overflow-tooltip />
-				<el-table-column :label="$t('common.action')" width="200">
+				<el-table-column :label="t('common.action')" width="200">
 					<template #default="scope">
 						<el-button icon="delete" text type="primary" v-auth="'sys_file_del'" @click="handleDelete([scope.row.id])">{{
-							$t('common.delBtn')
+							t('common.delBtn')
 						}}</el-button>
-						<el-button icon="download" type="primary" text @click="download(scope.row)">{{ $t('common.download') }}</el-button>
+						<el-button icon="download" type="primary" text @click="download(scope.row)">{{ t('common.download') }}</el-button>
 					</template>
 				</el-table-column>
 			</el-table>

@@ -1,14 +1,14 @@
 <template>
-  <el-dialog :title="state.ruleForm.menuId ? $t('common.editBtn') : $t('common.addBtn')" width="600" v-model="visible"
+  <el-dialog :title="state.ruleForm.menuId ? t('common.editBtn') : t('common.addBtn')" width="600" v-model="visible"
              :close-on-click-modal="false" draggable>
     <el-form ref="menuDialogFormRef" :model="state.ruleForm" :rules="dataRules" label-width="90px" v-loading="loading">
-      <el-form-item :label="$t('sysmenu.menuType')" prop="menuType">
+      <el-form-item :label="t('sysmenu.menuType')" prop="menuType">
         <el-radio-group v-model="state.ruleForm.menuType">
           <el-radio border value="0">菜单</el-radio>
           <el-radio border value="1">按钮</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.parentId')" prop="parentId">
+      <el-form-item :label="t('sysmenu.parentId')" prop="parentId">
         <el-tree-select
             v-model="state.ruleForm.parentId"
             :data="state.parentData"
@@ -17,42 +17,42 @@
             class="w100"
             clearable
             check-strictly
-            :placeholder="$t('sysmenu.inputParentIdTip')"
+            :placeholder="t('sysmenu.inputParentIdTip')"
         >
         </el-tree-select>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.name')" prop="name">
-        <el-input v-model="state.ruleForm.name" clearable :placeholder="$t('sysmenu.inputNameTip')"></el-input>
+      <el-form-item :label="t('sysmenu.name')" prop="name">
+        <el-input v-model="state.ruleForm.name" clearable :placeholder="t('sysmenu.inputNameTip')"></el-input>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.enName')" prop="enName">
-        <el-input v-model="state.ruleForm.enName" clearable :placeholder="$t('sysmenu.inputEnNameTip')"></el-input>
+      <el-form-item :label="t('sysmenu.enName')" prop="enName">
+        <el-input v-model="state.ruleForm.enName" clearable :placeholder="t('sysmenu.inputEnNameTip')"></el-input>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.path')" prop="path" v-if="state.ruleForm.menuType === '0'">
-        <el-input v-model="state.ruleForm.path" :placeholder="$t('sysmenu.inputPathTip')"/>
+      <el-form-item :label="t('sysmenu.path')" prop="path" v-if="state.ruleForm.menuType === '0'">
+        <el-input v-model="state.ruleForm.path" :placeholder="t('sysmenu.inputPathTip')"/>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.permission')" prop="permission" v-if="state.ruleForm.menuType === '1'">
-        <el-input v-model="state.ruleForm.permission" maxlength="50" :placeholder="$t('sysmenu.inputPermissionTip')"/>
+      <el-form-item :label="t('sysmenu.permission')" prop="permission" v-if="state.ruleForm.menuType === '1'">
+        <el-input v-model="state.ruleForm.permission" maxlength="50" :placeholder="t('sysmenu.inputPermissionTip')"/>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.sortOrder')" prop="sortOrder">
+      <el-form-item :label="t('sysmenu.sortOrder')" prop="sortOrder">
         <el-input-number v-model="state.ruleForm.sortOrder" :min="0" controls-position="right"/>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.icon')" prop="icon" v-if="state.ruleForm.menuType === '0'">
-        <IconSelector :placeholder="$t('sysmenu.inputIconTip')" v-model="state.ruleForm.icon"/>
+      <el-form-item :label="t('sysmenu.icon')" prop="icon" v-if="state.ruleForm.menuType === '0'">
+        <IconSelector :placeholder="t('sysmenu.inputIconTip')" v-model="state.ruleForm.icon"/>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.embedded')" prop="embedded"
+      <el-form-item :label="t('sysmenu.embedded')" prop="embedded"
                     v-if="state.ruleForm.menuType === '0' && state.ruleForm.path?.startsWith('http')">
         <el-radio-group v-model="state.ruleForm.embedded">
           <el-radio border value="0">否</el-radio>
           <el-radio border value="1">是</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.keepAlive')" prop="keepAlive" v-if="state.ruleForm.menuType === '0'">
+      <el-form-item :label="t('sysmenu.keepAlive')" prop="keepAlive" v-if="state.ruleForm.menuType === '0'">
         <el-radio-group v-model="state.ruleForm.keepAlive">
           <el-radio border value="0">否</el-radio>
           <el-radio border value="1">是</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item :label="$t('sysmenu.visible')" prop="visible" v-if="state.ruleForm.menuType === '0'">
+      <el-form-item :label="t('sysmenu.visible')" prop="visible" v-if="state.ruleForm.menuType === '0'">
         <el-radio-group v-model="state.ruleForm.visible">
           <el-radio border value="0">否</el-radio>
           <el-radio border value="1">是</el-radio>
@@ -61,8 +61,8 @@
     </el-form>
     <template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button type="primary" @click="onSubmit" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
     </template>
   </el-dialog>

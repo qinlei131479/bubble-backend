@@ -1,8 +1,8 @@
 <template>
 	<div class="layout-navbars-breadcrumb-user-news">
 		<div class="head-box">
-			<div class="head-box-title">{{ $t('user.newTitle') }}</div>
-			<div class="head-box-btn" v-if="newsList.length > 0" @click="onAllReadClick">{{ $t('user.newBtn') }}</div>
+			<div class="head-box-title">{{ t('user.newTitle') }}</div>
+			<div class="head-box-btn" v-if="newsList.length > 0" @click="onAllReadClick">{{ t('user.newBtn') }}</div>
 		</div>
 		<div class="content-box">
 			<template v-if="newsList.length > 0">
@@ -14,7 +14,7 @@
 					<div class="content-box-time">{{ v.time }}</div>
 				</div>
 			</template>
-			<el-empty :description="$t('user.newDesc')" v-else></el-empty>
+			<el-empty :description="t('user.newDesc')" v-else></el-empty>
 		</div>
 	</div>
 </template>
@@ -22,7 +22,9 @@
 <script setup lang="ts" name="layoutBreadcrumbUserNews">
 // 定义变量内容
 import { useMsg } from '/@/stores/msg';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n();
 const newsList = computed(() => {
 	return useMsg().getAllMsg();
 });

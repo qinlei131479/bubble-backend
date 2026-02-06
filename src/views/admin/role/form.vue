@@ -1,21 +1,21 @@
 <template>
-  <el-dialog :close-on-click-modal="false" :title="form.roleId ? $t('common.editBtn') : $t('common.addBtn')" width="600"
+  <el-dialog :close-on-click-modal="false" :title="form.roleId ? t('common.editBtn') : t('common.addBtn')" width="600"
              draggable v-model="visible">
     <el-form :model="form" :rules="dataRules" label-width="90px" ref="dataFormRef" v-loading="loading">
-      <el-form-item :label="$t('sysrole.roleName')" prop="roleName">
-        <el-input :placeholder="$t('sysrole.please_enter_a_role_name')" clearable v-model="form.roleName"></el-input>
+      <el-form-item :label="t('sysrole.roleName')" prop="roleName">
+        <el-input :placeholder="t('sysrole.please_enter_a_role_name')" clearable v-model="form.roleName"></el-input>
       </el-form-item>
-      <el-form-item :label="$t('sysrole.roleCode')" prop="roleCode">
+      <el-form-item :label="t('sysrole.roleCode')" prop="roleCode">
         <el-input
-            :placeholder="$t('sysrole.please_enter_the_role_Code')"
+            :placeholder="t('sysrole.please_enter_the_role_Code')"
             :disabled="form.roleId !== ''"
             clearable
             v-model="form.roleCode"
         ></el-input>
       </el-form-item>
-      <el-form-item :label="$t('sysrole.roleDesc')" prop="roleDesc">
+      <el-form-item :label="t('sysrole.roleDesc')" prop="roleDesc">
         <el-input
-            :placeholder="$t('sysrole.please_enter_the_role_description')"
+            :placeholder="t('sysrole.please_enter_the_role_description')"
             maxlength="150"
             rows="3"
             type="textarea"
@@ -25,8 +25,8 @@
     </el-form>
     <template #footer>
 			<span class="dialog-footer">
-				<el-button @click="visible = false">{{ $t('common.cancelButtonText') }}</el-button>
-				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ $t('common.confirmButtonText') }}</el-button>
+				<el-button @click="visible = false">{{ t('common.cancelButtonText') }}</el-button>
+				<el-button @click="onSubmit" type="primary" :disabled="loading">{{ t('common.confirmButtonText') }}</el-button>
 			</span>
     </template>
   </el-dialog>

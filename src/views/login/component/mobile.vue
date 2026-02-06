@@ -1,7 +1,7 @@
 <template>
 	<el-form size="large" class="login-content-form" ref="loginFormRef" :rules="loginRules" :model="loginForm" @keyup.enter="handleLogin">
 		<el-form-item class="login-animation1" prop="mobile">
-			<el-input text :placeholder="$t('mobile.placeholder1')" v-model="loginForm.mobile" clearable autocomplete="off">
+			<el-input text :placeholder="t('mobile.placeholder1')" v-model="loginForm.mobile" clearable autocomplete="off">
 				<template #prefix>
 					<i class="iconfont icon-dianhua el-input__icon"></i>
 				</template>
@@ -9,7 +9,7 @@
 		</el-form-item>
 		<el-form-item class="login-animation2" prop="code">
 			<el-col :span="15">
-				<el-input text maxlength="6" :placeholder="$t('mobile.placeholder2')" v-model="loginForm.code" clearable autocomplete="off">
+				<el-input text maxlength="6" :placeholder="t('mobile.placeholder2')" v-model="loginForm.code" clearable autocomplete="off">
 					<template #prefix>
 						<el-icon class="el-input__icon">
 							<ele-Position />
@@ -24,7 +24,7 @@
 		</el-form-item>
 		<el-form-item class="login-animation3">
 			<el-button type="primary" v-waves class="login-content-submit" @click="handleLogin" :loading="loading">
-				<span>{{ $t('mobile.btnText') }}</span>
+				<span>{{ t('mobile.btnText') }}</span>
 			</el-button>
 		</el-form-item>
 	</el-form>

@@ -3,8 +3,8 @@
 		<div class="layout-padding-auto layout-padding-view">
 			<el-row class="ml10" v-show="showSearch">
 				<el-form :inline="true" :model="state.queryForm" ref="queryRef">
-					<el-form-item :label="$t('job.jobName')" prop="jobName">
-						<el-input :placeholder="$t('job.inputjobNameTip')" @keyup.enter="getDataList" clearable v-model="state.queryForm.jobName" />
+					<el-form-item :label="t('job.jobName')" prop="jobName">
+						<el-input :placeholder="t('job.inputjobNameTip')" @keyup.enter="getDataList" clearable v-model="state.queryForm.jobName" />
 					</el-form-item>
 					<el-form-item :label="t('job.jobStatus')" prop="jobStatus">
 						<el-select :placeholder="t('job.inputjobStatusTip')" v-model="state.queryForm.jobStatus">
@@ -18,18 +18,18 @@
 					</el-form-item>
 
 					<el-form-item>
-						<el-button @click="getDataList" icon="Search" type="primary">{{ $t('common.queryBtn') }} </el-button>
-						<el-button @click="resetQuery" icon="Refresh">{{ $t('common.resetBtn') }}</el-button>
+						<el-button @click="getDataList" icon="Search" type="primary">{{ t('common.queryBtn') }} </el-button>
+						<el-button @click="resetQuery" icon="Refresh">{{ t('common.resetBtn') }}</el-button>
 					</el-form-item>
 				</el-form>
 			</el-row>
 			<el-row>
 				<div class="mb8" style="width: 100%">
 					<el-button v-auth="'job_sys_job_add'" @click="formDialogRef.openDialog()" class="ml10" icon="folder-add" type="primary">
-						{{ $t('common.addBtn') }}
+						{{ t('common.addBtn') }}
 					</el-button>
 					<el-button plain v-auth="'job_sys_job_del'" :disabled="multiple" @click="handleDelete(undefined)" class="ml10" icon="Delete" type="primary">
-						{{ $t('common.delBtn') }}
+						{{ t('common.delBtn') }}
 					</el-button>
 					<right-toolbar
 						:export="'job_sys_job_add'"
@@ -85,7 +85,7 @@
 					</template>
 				</el-table-column>
 
-				<el-table-column :label="$t('common.action')" fixed="right" width="300">
+				<el-table-column :label="t('common.action')" fixed="right" width="300">
 					<template #default="scope">
 						<el-button @click="handleJobLog(scope.row)" text type="primary">日志</el-button>
 
@@ -102,11 +102,11 @@
 							>暂停
 						</el-button>
 
-						<el-button v-auth="'job_sys_job_edit'" @click="handleEditJob(scope.row)" text type="primary">{{ $t('common.editBtn') }} </el-button>
+						<el-button v-auth="'job_sys_job_edit'" @click="handleEditJob(scope.row)" text type="primary">{{ t('common.editBtn') }} </el-button>
 
 						<el-button v-auth="'job_sys_job_start_job'" @click="handleRunJob(scope.row)" text type="primary">执行</el-button>
 
-						<el-button v-auth="'job_sys_job_del'" @click="handleDelete(scope.row)" text type="primary">{{ $t('common.delBtn') }} </el-button>
+						<el-button v-auth="'job_sys_job_del'" @click="handleDelete(scope.row)" text type="primary">{{ t('common.delBtn') }} </el-button>
 					</template>
 				</el-table-column>
 			</el-table>

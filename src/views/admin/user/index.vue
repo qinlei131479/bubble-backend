@@ -4,10 +4,10 @@
 			<pane size="15">
 				<div class="layout-padding-auto layout-padding-view">
 					<el-scrollbar>
-						<query-tree :placeholder="$t('common.queryDeptTip')" :query="deptData.queryList" :show-expand="true" @node-click="handleNodeClick">
+						<query-tree :placeholder="t('common.queryDeptTip')" :query="deptData.queryList" :show-expand="true" @node-click="handleNodeClick">
 							<!-- 没有数据权限提示 -->
 							<template #default="{ node, data }">
-								<el-tooltip v-if="data.isLock" class="item" effect="dark" :content="$t('sysuser.noDataScopeTip')" placement="right-start">
+								<el-tooltip v-if="data.isLock" class="item" effect="dark" :content="t('sysuser.noDataScopeTip')" placement="right-start">
 									<span
 										>{{ node.label }}
 										<SvgIcon name="ele-Lock" />
@@ -23,25 +23,25 @@
 				<div class="layout-padding-auto layout-padding-view">
 					<el-row v-show="showSearch">
 						<el-form ref="queryRef" :inline="true" :model="state.queryForm" @keyup.enter="getDataList">
-							<el-form-item :label="$t('sysuser.username')" prop="username">
-								<el-input v-model="state.queryForm.username" :placeholder="$t('sysuser.inputUsernameTip')" clearable />
+							<el-form-item :label="t('sysuser.username')" prop="username">
+								<el-input v-model="state.queryForm.username" :placeholder="t('sysuser.inputUsernameTip')" clearable />
 							</el-form-item>
-							<el-form-item :label="$t('sysuser.phone')" prop="phone">
-								<el-input v-model="state.queryForm.phone" :placeholder="$t('sysuser.inputPhoneTip')" clearable />
+							<el-form-item :label="t('sysuser.phone')" prop="phone">
+								<el-input v-model="state.queryForm.phone" :placeholder="t('sysuser.inputPhoneTip')" clearable />
 							</el-form-item>
 							<el-form-item>
-								<el-button icon="Search" type="primary" @click="getDataList">{{ $t('common.queryBtn') }}</el-button>
-								<el-button icon="Refresh" @click="resetQuery">{{ $t('common.resetBtn') }}</el-button>
+								<el-button icon="Search" type="primary" @click="getDataList">{{ t('common.queryBtn') }}</el-button>
+								<el-button icon="Refresh" @click="resetQuery">{{ t('common.resetBtn') }}</el-button>
 							</el-form-item>
 						</el-form>
 					</el-row>
 					<el-row>
 						<div class="mb8" style="width: 100%">
 							<el-button v-auth="'sys_user_add'" icon="folder-add" type="primary" @click="userDialogRef.openDialog()">
-								{{ $t('common.addBtn') }}
+								{{ t('common.addBtn') }}
 							</el-button>
 							<el-button plain v-auth="'sys_user_add'" class="ml10" icon="upload-filled" type="primary" @click="excelUploadRef.show()">
-								{{ $t('common.importBtn') }}
+								{{ t('common.importBtn') }}
 							</el-button>
 
 							<el-button
@@ -53,7 +53,7 @@
 								type="primary"
 								@click="handleDelete(selectObjs)"
 							>
-								{{ $t('common.delBtn') }}
+								{{ t('common.delBtn') }}
 							</el-button>
 
 							<right-toolbar
@@ -75,32 +75,32 @@
 						:header-cell-style="tableStyle.headerCellStyle"
 					>
 						<el-table-column :selectable="handleSelectable" type="selection" width="40" />
-						<el-table-column :label="$t('sysuser.index')" type="index" width="60" fixed="left" />
-						<el-table-column :label="$t('sysuser.username')" prop="username" fixed="left" show-overflow-tooltip></el-table-column>
-						<el-table-column :label="$t('sysuser.name')" prop="name" show-overflow-tooltip></el-table-column>
-						<el-table-column :label="$t('sysuser.phone')" prop="phone" show-overflow-tooltip></el-table-column>
-						<el-table-column :label="$t('sysuser.post')" show-overflow-tooltip>
+						<el-table-column :label="t('sysuser.index')" type="index" width="60" fixed="left" />
+						<el-table-column :label="t('sysuser.username')" prop="username" fixed="left" show-overflow-tooltip></el-table-column>
+						<el-table-column :label="t('sysuser.name')" prop="name" show-overflow-tooltip></el-table-column>
+						<el-table-column :label="t('sysuser.phone')" prop="phone" show-overflow-tooltip></el-table-column>
+						<el-table-column :label="t('sysuser.post')" show-overflow-tooltip>
 							<template #default="scope">
 								<el-tag v-for="(item, index) in scope.row.postList" :key="index">{{ item.postName }}</el-tag>
 							</template>
 						</el-table-column>
-						<el-table-column :label="$t('sysuser.role')" show-overflow-tooltip>
+						<el-table-column :label="t('sysuser.role')" show-overflow-tooltip>
 							<template #default="scope">
 								<el-tag v-for="(item, index) in scope.row.roleList" :key="index">{{ item.roleName }}</el-tag>
 							</template>
 						</el-table-column>
-						<el-table-column :label="$t('sysuser.lockFlag')" show-overflow-tooltip>
+						<el-table-column :label="t('sysuser.lockFlag')" show-overflow-tooltip>
 							<template #default="scope">
 								<el-switch v-model="scope.row.lockFlag" @change="changeSwitch(scope.row)" active-value="0" inactive-value="9"></el-switch>
 							</template>
 						</el-table-column>
-						<el-table-column :label="$t('sysuser.createTime')" prop="createTime" show-overflow-tooltip width="180"></el-table-column>
-						<el-table-column :label="$t('common.action')" width="160" fixed="right">
+						<el-table-column :label="t('sysuser.createTime')" prop="createTime" show-overflow-tooltip width="180"></el-table-column>
+						<el-table-column :label="t('common.action')" width="160" fixed="right">
 							<template #default="scope">
 								<el-button v-auth="'sys_user_edit'" icon="edit-pen" text type="primary" @click="userDialogRef.openDialog(scope.row.userId)">
-									{{ $t('common.editBtn') }}
+									{{ t('common.editBtn') }}
 								</el-button>
-								<el-tooltip :content="$t('sysuser.deleteDisabledTip')" :disabled="scope.row.userId !== '1'" placement="top">
+								<el-tooltip :content="t('sysuser.deleteDisabledTip')" :disabled="scope.row.userId !== '1'" placement="top">
 									<span style="margin-left: 12px">
 										<el-button
 											icon="delete"
@@ -109,7 +109,7 @@
 											text
 											type="primary"
 											@click="handleDelete([scope.row.userId])"
-											>{{ $t('common.delBtn') }}
+											>{{ t('common.delBtn') }}
 										</el-button>
 									</span>
 								</el-tooltip>
@@ -125,7 +125,7 @@
 
 		<upload-excel
 			ref="excelUploadRef"
-			:title="$t('sysuser.importUserTip')"
+			:title="t('sysuser.importUserTip')"
 			temp-url="/admin/sys-file/local/file/user.xlsx"
 			url="/admin/user/import"
 			@refreshDataList="getDataList"
