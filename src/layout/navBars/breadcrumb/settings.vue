@@ -1,35 +1,8 @@
 <template>
   <div class="layout-breadcrumb-seting">
     <el-drawer :title="t('layout.configTitle')" v-model="getThemeConfig.isDrawer" direction="rtl" destroy-on-close
-               size="360px" @close="onDrawerClose">
+               size="420px" @close="onDrawerClose">
       <el-scrollbar class="layout-breadcrumb-seting-bar">
-        <!-- 全局主题 -->
-        <el-divider content-position="left">{{ t('layout.oneTitle') }}</el-divider>
-        <div class="layout-breadcrumb-seting-bar-flex">
-          <div class="layout-breadcrumb-seting-bar-flex-label">primary</div>
-          <div class="layout-breadcrumb-seting-bar-flex-value">
-            <el-color-picker v-model="getThemeConfig.primary" @change="onColorPickerChange">
-            </el-color-picker>
-          </div>
-        </div>
-        <div class="layout-breadcrumb-seting-bar-flex mt15">
-          <div class="layout-breadcrumb-seting-bar-flex-label">{{ t('layout.fourIsDark') }}</div>
-          <div class="layout-breadcrumb-seting-bar-flex-value">
-            <el-switch v-model="getThemeConfig.isIsDark" size="small" @change="onAddDarkChange"></el-switch>
-          </div>
-        </div>
-        <div class="layout-breadcrumb-seting-bar-flex mt15">
-          <div class="layout-breadcrumb-seting-bar-flex-label">{{ t('user.title0') }}</div>
-          <div class="layout-breadcrumb-seting-bar-flex-value">
-            <el-select v-model="getThemeConfig.globalComponentSize" placeholder="请选择" style="width: 90px"
-                       @change="onComponentSizeChange">
-              <el-option :label="t('user.dropdownLarge')" value="large"></el-option>
-              <el-option :label="t('user.dropdownDefault')" value="default"></el-option>
-              <el-option :label="t('user.dropdownSmall')" value="small"></el-option>
-            </el-select>
-          </div>
-        </div>
-
         <!-- 布局切换 -->
         <el-divider content-position="left">{{ t('layout.sixTitle') }}</el-divider>
         <div class="layout-drawer-content-flex">
@@ -104,6 +77,33 @@
                 <p class="layout-tips-txt">{{ t('layout.sixColumns') }}</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- 全局主题 -->
+        <el-divider content-position="left">{{ t('layout.oneTitle') }}</el-divider>
+        <div class="layout-breadcrumb-seting-bar-flex">
+          <div class="layout-breadcrumb-seting-bar-flex-label">primary</div>
+          <div class="layout-breadcrumb-seting-bar-flex-value">
+            <el-color-picker v-model="getThemeConfig.primary" @change="onColorPickerChange">
+            </el-color-picker>
+          </div>
+        </div>
+        <div class="layout-breadcrumb-seting-bar-flex mt15">
+          <div class="layout-breadcrumb-seting-bar-flex-label">{{ t('layout.fourIsDark') }}</div>
+          <div class="layout-breadcrumb-seting-bar-flex-value">
+            <el-switch v-model="getThemeConfig.isIsDark" size="small" @change="onAddDarkChange"></el-switch>
+          </div>
+        </div>
+        <div class="layout-breadcrumb-seting-bar-flex mt15">
+          <div class="layout-breadcrumb-seting-bar-flex-label">{{ t('user.title0') }}</div>
+          <div class="layout-breadcrumb-seting-bar-flex-value">
+            <el-select v-model="getThemeConfig.globalComponentSize" placeholder="请选择" style="width: 90px"
+                       @change="onComponentSizeChange">
+              <el-option :label="t('user.dropdownLarge')" value="large"></el-option>
+              <el-option :label="t('user.dropdownDefault')" value="default"></el-option>
+              <el-option :label="t('user.dropdownSmall')" value="small"></el-option>
+            </el-select>
           </div>
         </div>
 
