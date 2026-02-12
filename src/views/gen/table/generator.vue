@@ -153,7 +153,7 @@ const dataForm = reactive({
   tableComment: '',
   tableName: '' as string,
   dsName: '' as string,
-  style: '', //  默认风格 element-plus
+  style: '1', //  默认风格 element-plus
   childTableName: '',
 });
 
@@ -162,9 +162,10 @@ const getTable = (dsName: string, tableName: string) => {
   loading.value = true;
   useTableApi(dsName, tableName)
       .then((res) => {
+        console.log(res.data)
         Object.assign(dataForm, res.data);
         let list = res.data.groupList;
-        dataForm.style = list[0]?.id;
+        dataForm.style = dataForm.style==='0'?'1':dataForm.style;
 
         // 如果是保存路径的形式，有限使用本地配置项
         const frontendPath = Local.get('frontendPath');
@@ -302,8 +303,9 @@ onMounted(() => {
   dataForm.tableName = String(props.tableName);
   dataForm.dsName = String(props.dsName);
 
-  getTable(dataForm.dsName, dataForm.tableName);
   genGroupList();
+
+  getTable(dataForm.dsName, dataForm.tableName);
   checkTemplateVersion()
 });
 
