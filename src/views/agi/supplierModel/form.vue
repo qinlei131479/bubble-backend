@@ -18,7 +18,6 @@
             <el-select class="w100" clearable placeholder="请选择模型类型" v-model="form.modelType">
               <el-option :key="item.value" :label="item.label" :value="item.value"
                          v-for="item in agi_supplier_model_type"/>
-
             </el-select>
           </el-form-item>
         </el-col>
